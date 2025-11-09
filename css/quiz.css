@@ -1,0 +1,367 @@
+/* Quiz Page Styles */
+
+/* body, html 초기화 및 오버라이드 */
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 100%;
+  overflow-x: hidden;
+  background-color: #f0f0f0;
+}
+
+/* 퀴즈 컨테이너 */
+.quiz-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #4ab3f6;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 퀴즈 콘텐츠 영역 */
+.quiz-content {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* 배경 이미지 - 상단 */
+.quiz-bg-top {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  font-size: 0;
+}
+
+.quiz-bg-top img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: top;
+}
+
+/* 배경 이미지 - 하단 */
+.quiz-bg-bottom {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  flex-shrink: 0;
+  margin-top: auto;
+  margin-bottom: 0;
+  padding: 0;
+  line-height: 0;
+  font-size: 0;
+}
+
+.quiz-bg-bottom img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: bottom;
+}
+
+/* 퀴즈 콘텐츠 (배경 위에 표시) */
+.quiz-content-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  padding: 20px;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.quiz-content-inner > * {
+  pointer-events: auto;
+}
+
+/* 좌측 최상단 로고 */
+.quiz-logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20;
+}
+
+.quiz-logo img {
+  width: 300px;
+  height: 56px;
+  display: block;
+  object-fit: contain;
+}
+
+/* 질문 화면 */
+.quiz-question-screen {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.quiz-question-box {
+  width: 100%;
+  text-align: center;
+}
+
+.quiz-question-text {
+  font-family: 'Cafe24Surround', sans-serif;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  line-height: 1.3;
+  color: #ffffff;
+  margin: 0 0 clamp(2.5rem, 6vw, 5rem) 0;
+  padding: 0;
+  white-space: pre-line;
+  text-shadow:
+    /* 부드러운 테두리 효과 */
+    -1px -1px 0 #0782aa,
+    1px -1px 0 #0782aa,
+    -1px 1px 0 #0782aa,
+    1px 1px 0 #0782aa,
+    -2px -2px 0 #0782aa,
+    2px -2px 0 #0782aa,
+    -2px 2px 0 #0782aa,
+    2px 2px 0 #0782aa,
+    -1px 0 0 #0782aa,
+    1px 0 0 #0782aa,
+    0 -1px 0 #0782aa,
+    0 1px 0 #0782aa,
+    -2px 0 0 #0782aa,
+    2px 0 0 #0782aa,
+    0 -2px 0 #0782aa,
+    0 2px 0 #0782aa,
+    /* 그림자 효과 */
+    0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.quiz-buttons-container {
+  display: inline-block;
+  background: #ffffff;
+  border-radius: 9999px;
+  padding: clamp(2rem, 4vw, 3.5rem) clamp(3rem, 6vw, 5rem);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.quiz-buttons {
+  display: flex;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  justify-content: center;
+  align-items: center;
+}
+
+.quiz-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.quiz-btn:hover {
+  transform: scale(1.1);
+}
+
+.quiz-btn:active {
+  transform: scale(0.95);
+}
+
+.quiz-btn img {
+  width: clamp(120px, 20vw, 220px);
+  height: auto;
+  display: block;
+}
+
+/* 결과 화면 */
+.quiz-result-screen {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute;
+  top: 160px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* 결과 화면 상단 배경 이미지 */
+.quiz-result-bg-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  font-size: 0;
+  pointer-events: none;
+}
+
+.quiz-result-bg-top img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: top;
+}
+
+.quiz-result-box {
+  width: 100%;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+/* 정답 동영상 */
+.quiz-star-video {
+  width: 74%;
+  max-width: 600px;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  z-index: 15;
+}
+
+.quiz-star-video video {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.quiz-star-video video img {
+  display: none;
+}
+
+.quiz-star-video > img {
+  width: 100%;
+  height: auto;
+  display: none;
+  object-fit: contain;
+}
+
+/* 오답 이미지 */
+.quiz-fish-image {
+  width: 74%;
+  max-width: 600px;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  z-index: 15;
+}
+
+.quiz-fish-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.quiz-result-title {
+  font-family: 'Cafe24Surround', sans-serif;
+  font-size: 3rem;
+  color: #1e3f5c;
+  margin: 0 0 2px 0;
+}
+
+.quiz-result-content {
+  width: 62%;
+  max-width: 670px;
+  padding: 0;
+  margin: 0 auto 2rem auto;
+}
+
+.quiz-result-image {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.quiz-result-description {
+  font-family: "Pretendard", sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: #1e3f5c;
+  margin: 0;
+  white-space: pre-line;
+  text-align: center;
+  letter-spacing: -0.04em;
+}
+
+
+/* 반응형 조정 */
+@media only screen and (max-width: 767px) {
+
+  .quiz-result-screen {
+    top: 60px;
+  }
+
+  .quiz-result-title {
+    font-size: 2rem;
+  }
+
+  .quiz-result-description {
+    font-size: 0.9rem;
+  }
+}
+
+
+/* 스마트폰 가로모드 (480px 이상, 768px 미만) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  .quiz-container {
+    max-width: 600px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+  }
+}
+
+/* 태블릿 가로모드 및 작은 데스크톱 (768px 이상) */
+@media only screen and (min-width: 768px) {
+  .quiz-container {
+    max-width: 768px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* 큰 태블릿 및 데스크톱 (1024px 이상) */
+@media only screen and (min-width: 1024px) {
+  .quiz-container {
+    max-width: 900px;
+  }
+}
+
+

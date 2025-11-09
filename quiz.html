@@ -1,0 +1,112 @@
+<!doctype html>
+<html class="no-js" lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <title>퀴즈 - 국립청주해양과학관</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <!-- Pretendard Font -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+  <!-- Cafe24Surround Font -->
+  <style>
+    @font-face {
+      font-family: 'Cafe24Surround';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+      font-weight: normal;
+      font-display: swap;
+    }
+  </style>
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/quiz.css">
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+
+  <!-- Main Container -->
+  <div class="container quiz-container">
+    <!-- Quiz Content Area -->
+    <main class="quiz-content">
+      <!-- 배경 이미지 레이어 -->
+      <div class="quiz-bg-top">
+        <img src="img/quiz_bg_top.png" alt="">
+      </div>
+      <div class="quiz-bg-bottom">
+        <img src="img/quiz_bg_bottom.png" alt="">
+      </div>
+
+      <!-- 결과 화면 상단 배경 이미지 -->
+      <div class="quiz-result-bg-top" id="resultBgTop" style="display: none;">
+        <img src="img/quiz_bg_result.png" alt="">
+      </div>
+
+      <!-- 퀴즈 콘텐츠 (배경 위에 표시) -->
+      <div class="quiz-content-inner">
+        <!-- 좌측 최상단 로고 -->
+        <div class="quiz-logo">
+          <img src="img/logo_quiz.png" alt="Logo">
+        </div>
+
+        <!-- 질문 화면 -->
+        <div class="quiz-question-screen" id="questionScreen">
+          <div class="quiz-question-box">
+            <p class="quiz-question-text" id="questionText"></p>
+            <div class="quiz-buttons-container">
+              <div class="quiz-buttons">
+                <button class="quiz-btn quiz-btn-o" id="btnO">
+                  <img src="img/quiz_o.png" alt="O">
+                </button>
+                <button class="quiz-btn quiz-btn-x" id="btnX">
+                  <img src="img/quiz_x.png" alt="X">
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 결과 화면 -->
+        <div class="quiz-result-screen" id="resultScreen" style="display: none;">
+          <!-- 정답 동영상 (정답일 때만 표시) -->
+          <div class="quiz-star-video" id="starVideo" style="display: none;">
+            <video autoplay muted playsinline>
+              <source src="img/quiz_star.webm" type="video/webm">
+              <source src="img/quiz_star.mov" type="video/quicktime">
+              <img src="img/quiz_star.gif" alt="Star">
+            </video>
+          </div>
+
+          <!-- 오답 이미지 (틀렸을 때만 표시) -->
+          <div class="quiz-fish-image" id="fishImage" style="display: none;">
+            <img src="img/quiz_fish.png" alt="Fish">
+          </div>
+
+          <div class="quiz-result-box">
+            <h2 class="quiz-result-title" id="resultTitle"></h2>
+            <div class="quiz-result-content">
+              <img class="quiz-result-image" id="resultImage" src="" alt="">
+              <p class="quiz-result-description" id="resultDescription"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/quiz-data.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+
+</html>
+

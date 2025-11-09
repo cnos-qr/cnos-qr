@@ -1,0 +1,60 @@
+<!doctype html>
+<html class="no-js" lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <title>국립청주해양과학관</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <!-- Pretendard Font -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Logo Area -->
+    <header class="logo-area">
+      <img src="img/logo.png" alt="Logo" class="logo-image">
+    </header>
+
+    <!-- Pattern Background Area -->
+    <div class="pattern-area">
+      <h1 class="pattern-title" id="pageTitle">로딩 중...</h1>
+    </div>
+
+    <!-- Main Media Area (Image or Video) -->
+    <section class="media-area" id="mediaArea">
+      <!-- 동적으로 이미지 또는 비디오가 삽입됩니다 -->
+      <!-- 오디오 재생 버튼 (필요시 표시) -->
+      <div class="audio-play-button" id="audioPlayButton" style="display: none;">
+        <img src="img/play_audio.png" alt="오디오 재생/일시정지" class="audio-icon">
+      </div>
+    </section>
+
+    <!-- Text Content Area -->
+    <main class="text-content">
+      <p class="overview" id="overview">콘텐츠를 불러오는 중입니다...</p>
+      <p id="sectionTitle" class="section-title"></p>
+      <p class="description" id="description"></p>
+    </main>
+  </div>
+
+  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/content-data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
