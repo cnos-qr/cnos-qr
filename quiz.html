@@ -6,6 +6,8 @@
   <title>퀴즈 - 국립청주해양과학관</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
   <meta property="og:title" content="">
   <meta property="og:type" content="">
   <meta property="og:url" content="">
@@ -78,11 +80,13 @@
         <div class="quiz-result-screen" id="resultScreen" style="display: none;">
           <!-- 정답 동영상 (정답일 때만 표시) -->
           <div class="quiz-star-video" id="starVideo" style="display: none;">
+            <!-- 비디오 알파채널 이슈로 주석처리
             <video autoplay muted playsinline>
               <source src="img/quiz_star.webm" type="video/webm">
               <source src="img/quiz_star.mov" type="video/quicktime">
-              <img src="img/quiz_star.gif" alt="Star">
             </video>
+            -->
+            <img src="img/quiz_star.gif" alt="Star">
           </div>
 
           <!-- 오답 이미지 (틀렸을 때만 표시) -->

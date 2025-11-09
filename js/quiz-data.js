@@ -1,5 +1,5 @@
 // 퀴즈 데이터 저장소
-var quizData = {
+window.quizData = {
   1: {
     "question": `지구의 바닷물은
 사실 점점 더

@@ -6,21 +6,11 @@ function getUrlParameter(name) {
 
 // 콘텐츠 데이터 로드 및 페이지 업데이트
 function loadContent(contentId) {
-  console.log('=== 콘텐츠 로드 시작 ===');
-  console.log('요청 ID:', contentId);
-
   // contentData에서 데이터 가져오기
-  if (typeof contentData !== 'undefined' && contentData[contentId]) {
-    console.log('✓ content-data.js에서 데이터 로드 성공');
-    console.log('데이터:', contentData[contentId]);
-
+  if (typeof window.contentData !== 'undefined' && window.contentData[contentId]) {
     // 페이지 업데이트
-    updatePage(contentData[contentId]);
-
-    console.log('✓ 콘텐츠 로드 완료:', contentId);
+    updatePage(window.contentData[contentId]);
   } else {
-    console.error('✗ 콘텐츠를 찾을 수 없습니다:', contentId);
-    console.error('사용 가능한 콘텐츠 ID:', Object.keys(contentData || {}));
     showError('콘텐츠 ID를 찾을 수 없습니다: ' + contentId);
   }
 }
@@ -64,7 +54,6 @@ function updatePage(data) {
           fontSize -= 0.1;
           titleElement.style.fontSize = fontSize + 'rem';
         }
-        console.log('타이틀 폰트 크기 조정:', fontSize + 'rem');
       }
     }, 10);
   }
@@ -98,7 +87,7 @@ function updatePage(data) {
 
       // 비디오 자동 재생 시도
       video.play().catch(function(err) {
-        console.log('비디오 자동 재생 실패:', err);
+        // 자동 재생 실패 처리 (필요시 구현)
       });
 
     } else if (data.mediaType === 'image+audio') {
@@ -110,7 +99,6 @@ function updatePage(data) {
 
       // 이미지 로드 에러 처리
       img.addEventListener('error', function() {
-        console.log('이미지 로드 실패:', data.imageUrl);
         this.style.backgroundColor = '#e0e0e0';
       });
 
@@ -150,24 +138,22 @@ function updatePage(data) {
             if (audio.paused) {
               // 일시정지 상태 -> 재생
               audio.play().then(function() {
-                console.log('✓ 오디오 재생');
+                // 재생 성공
               }).catch(function(err) {
-                console.log('✗ 오디오 재생 실패:', err);
                 alert('오디오 재생에 실패했습니다.');
               });
             } else {
               // 재생 중 -> 일시정지
               audio.pause();
-              console.log('✓ 오디오 일시정지');
             }
           });
         }
 
         // 자동 재생 시도
         audio.play().then(function() {
-          console.log('✓ 오디오 자동 재생 성공');
+          // 자동 재생 성공
         }).catch(function(err) {
-          console.log('✗ 오디오 자동 재생 실패 - 버튼 클릭 필요:', err.name);
+          // 자동 재생 실패 - 버튼 클릭 필요
         });
       }
 
@@ -180,7 +166,6 @@ function updatePage(data) {
 
       // 이미지 로드 에러 처리
       img.addEventListener('error', function() {
-        console.log('이미지 로드 실패:', data.imageUrl);
         this.style.backgroundColor = '#e0e0e0';
       });
 
@@ -289,14 +274,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (newOrientation !== currentOrientation) {
       currentOrientation = newOrientation;
-      console.log(`화면 방향 변경: ${currentOrientation}`);
     }
   });
-
-  // 초기 로딩 메시지
-  console.log('반응형 모바일 템플릿이 로드되었습니다.');
-  console.log(`현재 화면 방향: ${currentOrientation}`);
-  console.log(`뷰포트 크기: ${window.innerWidth}x${window.innerHeight}`);
-  console.log(`콘텐츠 ID: ${contentId || 'gangchi (기본값)'}`);
 });
 

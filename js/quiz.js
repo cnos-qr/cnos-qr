@@ -11,18 +11,13 @@ function getUrlParameter(name) {
 
 // 퀴즈 데이터 로드
 function loadQuiz(quizNo) {
-  console.log('퀴즈 로드:', quizNo);
-
   if (typeof quizData !== 'undefined' && quizData[quizNo]) {
     currentQuizData = quizData[quizNo];
     currentQuizNo = quizNo;
 
     // 질문 화면 표시
     showQuestionScreen();
-
-    console.log('✓ 퀴즈 로드 성공:', currentQuizData);
   } else {
-    console.error('✗ 퀴즈를 찾을 수 없습니다:', quizNo);
     alert('퀴즈 번호 ' + quizNo + '를 찾을 수 없습니다.');
   }
 }
@@ -73,19 +68,12 @@ function showResultScreen(isCorrect) {
       if (video) {
         video.currentTime = 0;
 
-        // 비디오 메타데이터 로드 시 정보 출력
-        video.addEventListener('loadedmetadata', function() {
-          console.log('비디오 로드됨:', video.videoWidth, 'x', video.videoHeight);
-          console.log('비디오 소스:', video.currentSrc);
-        }, { once: true });
-
         video.play().catch(function(err) {
-          console.log('동영상 재생 실패:', err);
+          // 재생 실패 처리 (필요시 구현)
         });
 
         // 비디오 로드 에러 시 GIF 표시
         video.addEventListener('error', function() {
-          console.log('비디오 로드 실패, GIF로 대체');
           var gif = starVideo.querySelector('img');
           if (gif) {
             video.style.display = 'none';
@@ -127,8 +115,6 @@ function handleOClick() {
   if (!currentQuizData) return;
 
   var isCorrect = currentQuizData.answer === 'O';
-  console.log('O 클릭 - 정답:', currentQuizData.answer, '결과:', isCorrect);
-
   showResultScreen(isCorrect);
 }
 
@@ -137,7 +123,6 @@ function handleXClick() {
   if (!currentQuizData) return;
 
   var isCorrect = currentQuizData.answer === 'X';
-  console.log('X 클릭 - 정답:', currentQuizData.answer, '결과:', isCorrect);
 
   showResultScreen(isCorrect);
 }
@@ -145,8 +130,6 @@ function handleXClick() {
 
 // DOM이 로드된 후 실행
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('퀴즈 페이지가 로드되었습니다.');
-
   // URL 파라미터에서 퀴즈 번호 가져오기
   var quizNo = getUrlParameter('no');
 
@@ -181,11 +164,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (newOrientation !== currentOrientation) {
       currentOrientation = newOrientation;
-      console.log(`화면 방향 변경: ${currentOrientation}`);
     }
   });
-
-  console.log(`현재 화면 방향: ${currentOrientation}`);
-  console.log(`퀴즈 번호: ${quizNo}`);
 });
 

@@ -1,5 +1,5 @@
 // 콘텐츠 데이터 저장소
-var contentData = {
+window.contentData = {
   'crabrobot': {
     "title": "게를 닮은 바다 속 로봇",
     "mediaType": "image",

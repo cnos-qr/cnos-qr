@@ -6,10 +6,15 @@
   "license": "",
   "author": "",
   "scripts": {
-    "build": "parcel build index.html",
+    "clean": "rm -rf dist .cache",
+    "prebuild": "npm run clean",
+    "build": "parcel build index.html quiz.html --public-url ./ && npm run copy:assets",
+    "copy:assets": "mkdir -p dist/media && cp -r media/* dist/media/ && cp favicon.ico dist/",
+    "build:clean": "npm run clean && npm run build",
     "dev": "parcel index.html --open",
+    "dev:quiz": "parcel quiz.html --open",
     "start": "npm run build && npm run dev",
-    "serve": "npx http-server -p 1234 -c-1",
+    "serve": "npx http-server dist -p 8080 -c-1",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
